@@ -132,7 +132,7 @@ The Google Ads AI Optimization Platform is an internal agency tool designed to r
 - Real-time budget overspend alerts
 - Performance anomaly detection
 - Daily summary emails
-- Slack integration for urgent alerts
+- In-app notifications
 - Customizable alert thresholds
 
 #### **F6: Reporting & Analytics**
@@ -154,10 +154,8 @@ The Google Ads AI Optimization Platform is an internal agency tool designed to r
 
 #### **F8: External Integrations**
 - Google Ads API (read/write)
-- Slack notifications
-- Email service (SendGrid)
-- Google Sheets export
-- Webhook support
+- Email notifications (via Supabase)
+- Webhook support for custom integrations
 
 ---
 
@@ -283,7 +281,7 @@ Acceptance Criteria:
 - Budget overspend alerts
 - Performance drop alerts
 - Configurable thresholds
-- Multiple notification channels
+- Email and in-app notifications
 - Alert history log
 ```
 
@@ -316,7 +314,7 @@ Acceptance Criteria:
 ### Phase 2 - 2 months
 - ✅ AI-powered ad copy generation
 - ✅ Budget optimization recommendations
-- ✅ Slack integration
+- ✅ Advanced notifications system
 - ✅ Advanced filtering/search
 - ✅ Performance trending
 

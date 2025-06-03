@@ -7,11 +7,11 @@ AI-powered platform for managing and optimizing multiple Google Ads accounts.
 
 ## Features
 
-- í´– AI-powered optimization recommendations
-- í³Š Multi-account dashboard
-- íº€ One-click implementation
-- í³ˆ Performance analytics
-- í´” Real-time alerts
+- ï¿½ï¿½ï¿½ AI-powered optimization recommendations
+- ï¿½ï¿½ï¿½ Multi-account dashboard
+- ï¿½ï¿½ï¿½ One-click implementation
+- ï¿½ï¿½ï¿½ Performance analytics
+- ï¿½ï¿½ï¿½ Real-time alerts
 
 ## Tech Stack
 

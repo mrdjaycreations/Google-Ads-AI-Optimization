@@ -252,10 +252,12 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_KEY=your-anon-key
 SUPABASE_SERVICE_KEY=your-service-key
 
-# Google Ads
-GOOGLE_ADS_DEVELOPER_TOKEN=your-dev-token
-GOOGLE_ADS_CLIENT_ID=your-client-id
-GOOGLE_ADS_CLIENT_SECRET=your-client-secret
+# Google Ads API Configuration
+GOOGLE_ADS_DEVELOPER_TOKEN=USJoZ_CN_pYY2MP-jlhjqA
+GOOGLE_ADS_CLIENT_ID=1064238544359-185m5ligmeu6gmcsfn5ctnpg4jg8mvq1.apps.googleusercontent.com
+GOOGLE_ADS_CLIENT_SECRET=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
+GOOGLE_ADS_LOGIN_CUSTOMER_ID=6052344141
+WISEADS_REDIRECT_URI=http://localhost:8000/auth/callback
 
 # AI Services
 OPENAI_API_KEY=sk-...
@@ -596,6 +598,10 @@ VITE_API_URL=http://localhost:8000
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key
 VITE_BRAND_NAME=Brand Wisdom Solutions
+
+# Google OAuth (if implementing frontend auth flow)
+VITE_GOOGLE_CLIENT_ID=1064238544359-185m5ligmeu6gmcsfn5ctnpg4jg8mvq1.apps.googleusercontent.com
+VITE_GOOGLE_REDIRECT_URI=http://localhost:5173/auth/callback
 EOF
 
 cp .env.example .env
@@ -841,11 +847,12 @@ EOF
 echo "✅ Project structure created successfully!"
 echo ""
 echo "📋 Next Steps:"
-echo "1. Copy backend/.env.example to backend/.env and add your credentials"
-echo "2. Copy frontend/.env.example to frontend/.env and add Supabase URL/Key"
-echo "3. Add your logo: Copy Brandwisdomlogo-1.webp to frontend/public/assets/"
-echo "4. Run the SQL schema in Supabase SQL Editor (infrastructure/supabase-schema.sql)"
-echo "5. Start development with: docker compose up"
+echo "1. ✅ Google Ads API configured (Developer Token: USJoZ_CN_pYY2MP-jlhjqA)"
+echo "2. ✅ OAuth 2.0 client setup (Client ID: 1064238544359-185m5ligmeu6gmcsfn5ctnpg4jg8mvq1)"
+echo "3. Configure Supabase project and update .env files"
+echo "4. Add your logo: Copy Brandwisdomlogo-1.webp to frontend/public/assets/"
+echo "5. Run the SQL schema in Supabase SQL Editor (infrastructure/supabase-schema.sql)"
+echo "6. Start development with: docker compose up"
 echo ""
 echo "🎨 Brand Assets:"
 echo "   - Logo: frontend/public/assets/Brandwisdomlogo-1.webp (40px height)"
@@ -874,7 +881,62 @@ echo "   - Flower: http://localhost:5555"
    - Variant: TypeScript
 
 5. **After all batches are complete**, you'll need to:
+   - ✅ Google Ads API credentials are pre-configured
    - Configure your Supabase credentials in the .env files
    - Run the SQL schema in Supabase
    - Start the project with Docker
+
+---
+
+## 🔐 GOOGLE API CONFIGURATION (PRE-CONFIGURED)
+
+### OAuth 2.0 Client Details
+**✅ READY TO USE - No additional setup required**
+
+| Setting | Value |
+|---------|-------|
+| **Client Name** | Google ads AI 2.0 |
+| **Client Type** | Web application |
+| **Client ID** | `1064238544359-185m5ligmeu6gmcsfn5ctnpg4jg8mvq1.apps.googleusercontent.com` |
+| **Client Secret** | `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` |
+| **Developer Token** | `USJoZ_CN_pYY2MP-jlhjqA` |
+| **Login Customer ID** | `6052344141` |
+
+### Authorized Redirect URIs
+```
+✅ http://localhost:5173/auth/callback    # Frontend (Vite)
+✅ http://localhost:3000/auth/callback    # Alternative frontend
+✅ http://localhost:8000/auth/callback    # Backend (FastAPI) - RECOMMENDED
+✅ http://localhost/auth/callback         # Generic localhost
+```
+
+### OAuth Consent Screen
+- **Status**: Testing (100-user limit)
+- **Test Users**: `brandwisdomo1@gmail.com`, `d.j.arayan@gmail.com`
+- **Scope**: `https://www.googleapis.com/auth/adwords`
+
+### Environment Variables (Already Configured)
+The setup scripts automatically configure these in your `.env` files:
+
+```bash
+# Backend .env
+GOOGLE_ADS_DEVELOPER_TOKEN=USJoZ_CN_pYY2MP-jlhjqA
+GOOGLE_ADS_CLIENT_ID=1064238544359-185m5ligmeu6gmcsfn5ctnpg4jg8mvq1.apps.googleusercontent.com
+GOOGLE_ADS_CLIENT_SECRET=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
+GOOGLE_ADS_LOGIN_CUSTOMER_ID=6052344141
+WISEADS_REDIRECT_URI=http://localhost:8000/auth/callback
+
+# Frontend .env (optional)
+VITE_GOOGLE_CLIENT_ID=1064238544359-185m5ligmeu6gmcsfn5ctnpg4jg8mvq1.apps.googleusercontent.com
+VITE_GOOGLE_REDIRECT_URI=http://localhost:5173/auth/callback
+```
+
+### 🚀 Ready for OAuth Implementation
+Your Google Ads API integration is fully configured and ready for:
+1. **OAuth 2.0 Authentication Flow**
+2. **Google Ads Account Access**
+3. **Campaign Data Retrieval**
+4. **Automated Optimizations**
+
+No additional Google API setup required! 🎉
 

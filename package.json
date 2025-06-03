@@ -1,0 +1,13 @@
+{
+  "name": "google-ads-ai-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "docker compose up",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && source venv/Scripts/activate && uvicorn app.main:app --reload",
+    "install:all": "npm install && cd frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && pytest"
+  }
+}

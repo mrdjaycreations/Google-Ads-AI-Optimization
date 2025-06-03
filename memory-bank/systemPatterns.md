@@ -1,7 +1,8 @@
-# System Patterns: Google Ads AI Optimization Platform
+# System Patterns: Google Ads AI Search Optimization Platform
+**Source**: final-prd-search-ads.md + database-schema-complete.md
 
 ## Architecture Overview
-Microservices architecture with clear separation between frontend, backend, database, and external integrations.
+Microservices architecture specifically optimized for Search campaign optimization with clear separation between frontend, backend, database, and external integrations. Enhanced with AI-powered search query analysis and real-time optimization capabilities.
 
 ## Core System Components
 
@@ -43,37 +44,78 @@ backend/
 - **Service Layer**: Business logic separation from API routes
 - **Background Tasks**: Celery for long-running operations
 
-### 3. Database Design (Supabase/PostgreSQL)
-**Core Tables:**
+### 3. Database Design (Supabase/PostgreSQL) - Search Optimization Focus
+**18 Table Groups (1259 lines total from database-schema-complete.md):**
+
+#### Core Search Optimization Tables:
+- `search_terms`: Search query data with performance metrics
+- `search_term_recommendations`: AI-generated search optimization suggestions
+- `search_query_patterns`: ML pattern recognition for optimization
+- `search_intents`: Intent classifications with confidence scores
+- `intent_optimizations`: Intent-based optimization rules
+- `ad_copies`: Ad variations with psychological triggers
+- `ad_copy_tests`: A/B testing framework for ad copy
+- `psychological_triggers`: Trigger library with effectiveness scores
+- `negative_keyword_lists`: Organized negative keyword collections
+- `negative_keywords`: Individual negative keywords with impact data
+- `negative_keyword_suggestions`: AI-generated suggestions
+- `quality_scores`: Historical Quality Score tracking
+- `qs_improvement_plans`: Specific improvement recommendations
+- `bid_strategies`: Custom bidding strategies
+- `bid_adjustments`: Granular bid modifications
+- `dayparting_schedules`: Time-based bid adjustments
+
+#### Enhanced Core Tables:
 - `users`: User authentication and profile data
-- `google_ads_accounts`: Connected Google Ads account information
+- `google_ads_accounts`: Connected Google Ads account information with search focus
+- `campaigns`, `ad_groups`, `keywords`, `ads`: Complete Google Ads hierarchy
+- `performance_metrics`: Historical performance tracking
 - `recommendations`: AI-generated optimization suggestions
 - `audit_logs`: Complete activity and change tracking
 
 **Design Patterns:**
-- **Row Level Security (RLS)**: Supabase security policies
+- **Row Level Security (RLS)**: Supabase security policies for multi-tenant access
 - **UUID Primary Keys**: For distributed system compatibility
-- **JSONB Fields**: Flexible data storage for dynamic content
-- **Indexed Queries**: Optimized for common access patterns
+- **JSONB Fields**: Flexible data storage for dynamic search optimization content
+- **Vector Storage**: pgvector for semantic search capabilities
+- **Indexed Queries**: Optimized for search query analysis patterns
+- **Materialized Views**: Performance optimization for complex search analytics
 
-### 4. AI/ML Integration Pattern
+### 4. AI/ML Integration Pattern - Search Optimization Focus
 ```python
-# LangChain + Multiple AI Providers
-class RecommendationEngine:
+# LangChain + OpenRouter API with Multiple Models
+class SearchOptimizationEngine:
     def __init__(self):
-        self.openai_client = OpenAI()
-        self.anthropic_client = Anthropic()
-        
-    async def generate_recommendations(self, campaign_data):
-        # Multi-provider AI analysis
+        self.openrouter_client = OpenRouter()
+        self.models = {
+            "ad_copy_generation": "anthropic/claude-3-opus",
+            "keyword_analysis": "openai/gpt-4-turbo",
+            "bulk_operations": "anthropic/claude-3-haiku",
+            "competitor_analysis": "google/gemini-pro",
+            "insights_generation": "anthropic/claude-3-sonnet",
+            "quick_classification": "mistralai/mixtral-8x7b"
+        }
+
+    async def analyze_search_queries(self, search_terms_data):
+        # Search intent classification
+        # Profitable query discovery
+        # Waste elimination detection
         # Confidence scoring
-        # Impact estimation
+
+    async def generate_ad_copy(self, keywords, psychological_triggers):
+        # Generate 15 headlines + 4 descriptions
+        # Apply psychological triggers
+        # Ensure keyword inclusion
+        # Brand voice consistency
 ```
 
-**AI Patterns:**
-- **Provider Abstraction**: Unified interface for multiple AI services
-- **Confidence Scoring**: Quantified recommendation reliability
-- **Context Management**: Campaign-specific prompt engineering
+**AI Patterns for Search Optimization:**
+- **Model Selection**: Optimized AI model selection for specific search tasks
+- **Search Intent Classification**: NLP-based categorization with confidence scoring
+- **Psychological Trigger Integration**: AI-powered ad copy with emotional appeals
+- **Query Pattern Recognition**: ML-based identification of profitable/wasteful patterns
+- **Confidence Scoring**: Quantified recommendation reliability for search optimizations
+- **Context Management**: Search campaign-specific prompt engineering
 - **Fallback Strategy**: Multiple AI providers for reliability
 
 ## Integration Patterns

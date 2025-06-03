@@ -92,8 +92,8 @@ SECRET_KEY=your-secret-key-here-change-this
 ENVIRONMENT=development
 
 # Supabase Configuration
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_KEY=your-anon-key
+SUPABASE_URL=https://irftzijnouubcjkyeuxj.supabase.co
+SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlyZnR6aWpub3V1YmNqa3lldXhqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5NzkwMTUsImV4cCI6MjA2NDU1NTAxNX0.5aeJ0716sJgQX0s8vRZDg2FwCq63RiHUIwU4ZzX0u9I
 SUPABASE_SERVICE_KEY=your-service-key
 
 # Google Ads API Configuration
@@ -114,8 +114,8 @@ REDIS_URL=redis://localhost:6379
 #### Frontend Environment Variables (.env)
 ```bash
 VITE_API_URL=http://localhost:8000
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_URL=https://irftzijnouubcjkyeuxj.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlyZnR6aWpub3V1YmNqa3lldXhqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5NzkwMTUsImV4cCI6MjA2NDU1NTAxNX0.5aeJ0716sJgQX0s8vRZDg2FwCq63RiHUIwU4ZzX0u9I
 VITE_BRAND_NAME=Brand Wisdom Solutions
 
 # Google OAuth (if implementing frontend auth flow)

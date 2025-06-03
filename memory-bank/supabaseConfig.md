@@ -57,17 +57,61 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 
 ### Core Tables Overview
 ```sql
--- Users with role-based access
-users (id, email, full_name, role, created_at, updated_at)
+-- Users with enhanced profile data
+users (id, email, full_name, role, avatar_url, timezone, preferences, last_login_at, is_active)
 
--- Google Ads account connections
-google_ads_accounts (id, customer_id, name, status, user_id, refresh_token)
+-- Google Ads accounts with enhanced metadata
+google_ads_accounts (id, customer_id, name, currency_code, timezone, status, account_type,
+                    manager_customer_id, descriptive_name, user_id, refresh_token,
+                    last_sync_at, sync_status, sync_error)
 
--- AI-generated recommendations
-recommendations (id, account_id, type, title, description, impact_estimate, status, ai_confidence)
+-- Complete Google Ads hierarchy
+campaigns (id, account_id, campaign_id, name, status, campaign_type, budget_amount_micros,
+          budget_type, bidding_strategy_type, target_cpa_micros, target_roas)
+
+ad_groups (id, campaign_id, ad_group_id, name, status, cpc_bid_micros, cpm_bid_micros, target_cpa_micros)
+
+keywords (id, ad_group_id, keyword_id, keyword_text, match_type, status, cpc_bid_micros,
+         quality_score, first_page_cpc_micros, top_of_page_cpc_micros)
+
+ads (id, ad_group_id, ad_id, ad_type, status, headlines, descriptions, final_urls, path1, path2)
+
+-- Performance metrics with historical tracking
+performance_metrics (id, resource_type, resource_id, date, impressions, clicks, cost_micros,
+                    conversions, conversion_value_micros, ctr, avg_cpc_micros, avg_position)
+
+-- Enhanced AI recommendations
+recommendations (id, account_id, resource_type, resource_id, type, title, description, reasoning,
+                impact_estimate, status, ai_confidence, ai_model, priority, estimated_impact_value,
+                implementation_data, applied_at, applied_by, dismissed_at, expires_at)
+
+-- Notification and alerting system
+notifications (id, user_id, type, title, message, severity, resource_type, resource_id,
+              data, is_read, read_at, sent_via_email, email_sent_at)
+
+alert_rules (id, user_id, name, description, resource_type, metric, condition, threshold_value,
+            time_period, is_active, notification_channels, last_triggered_at)
+
+-- Bulk operations tracking
+bulk_operations (id, user_id, operation_type, status, total_items, processed_items,
+                successful_items, failed_items, error_details, started_at, completed_at)
+
+bulk_operation_items (id, bulk_operation_id, resource_type, resource_id, operation_data,
+                     status, error_message, processed_at)
+
+-- Reports and analytics
+reports (id, user_id, name, description, report_type, filters, columns, schedule,
+        is_public, last_generated_at)
+
+-- API key management
+api_keys (id, user_id, name, key_hash, permissions, last_used_at, expires_at, is_active)
+
+-- System configuration
+system_settings (id, key, value, description, is_public, updated_by)
 
 -- Comprehensive audit logging
-audit_logs (id, user_id, action, resource_type, resource_id, details)
+audit_logs (id, user_id, action, resource_type, resource_id, old_values, new_values,
+           ip_address, user_agent, details)
 ```
 
 ## Authentication Configuration
